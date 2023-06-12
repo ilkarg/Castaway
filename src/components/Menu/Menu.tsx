@@ -4,6 +4,16 @@ import { Box, AppBar, Toolbar, IconButton, Stack, Link, Grid } from "@mui/materi
 const logo = require('./../../assets/images/logo.png');
 
 export const Menu = () => {
+    const setActiveLink = (elem: HTMLDivElement) => {
+        const menu: HTMLDivElement = elem.parentNode as HTMLDivElement;
+        for (let i = 0; i < menu.childNodes.length; i++) {
+            (menu?.childNodes[i] as HTMLDivElement).classList.remove("active");
+        }
+        elem.classList.add("active");
+    }
+
+    // TODO: Попробовать поправить, чтобы при прокрутке до якоря Last episodes был виден заголовок якоря
+
     return (
         <nav className="Menu">
             <Box sx={{ m: -1, mb: 1 }}>
@@ -15,10 +25,30 @@ export const Menu = () => {
                             <img src={logo} alt="logo" />
                         </Toolbar>
                         <Toolbar sx={{ mt: 1.5 }} className="Menu__Links">
-                            <Link href="#" className="Menu__Links__Link active" underline="none">Home</Link>
-                            <Link href="#" className="Menu__Links__Link" underline="none">Episodes</Link>
-                            <Link href="#" className="Menu__Links__Link" underline="none">About</Link>
-                            <Link href="#" className="Menu__Links__Link" underline="none">Contact</Link>
+                            <Link 
+                                href="#" 
+                                onClick={(event) => setActiveLink(event.target as HTMLDivElement)} 
+                                className="Menu__Links__Link active" 
+                                underline="none"
+                            >Home</Link>
+                            <Link 
+                                href="#LatestEpisodes" 
+                                onClick={(event) => setActiveLink(event.target as HTMLDivElement)} 
+                                className="Menu__Links__Link" 
+                                underline="none"
+                            >Episodes</Link>
+                            <Link 
+                                href="#" 
+                                onClick={(event) => setActiveLink(event.target as HTMLDivElement)} 
+                                className="Menu__Links__Link" 
+                                underline="none"
+                            >About</Link>
+                            <Link
+                                href="#" 
+                                onClick={(event) => setActiveLink(event.target as HTMLDivElement)} 
+                                className="Menu__Links__Link" 
+                                underline="none"
+                            >Contact</Link>
                         </Toolbar>
                     </Stack>
                 </AppBar>

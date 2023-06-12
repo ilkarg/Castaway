@@ -1,20 +1,18 @@
 import "./styles/Main.sass";
 import { Menu } from "../../components/Menu/Menu";
 import { Home } from "../../components/Home/Home";
-import { EpisodeCard } from "../../components/EpisodeCard/EpisodeCard";
+import { LatestEpisodes } from "../../components/LatestEpisodes/LatestEpisodes";
+import { Stack } from "@mui/material";
 
 export const Main = () => {
     return (
-        <>
+        <Stack
+            justifyContent="center"
+            alignItems="center"
+        >
             <Menu />
             <Home />
-            <EpisodeCard 
-                episodeImage="photo.png"
-                episodeTag="Gear"
-                episodeNumber={3}
-                episodeName="Should you get\noutboard audio gear?"
-                episodeAbout="Is hardware really worth it when it comes to podcasting? The answer is...it\ndepends. Here's our reasons on why you might want to consider picking\nsomething up"
-            />
-        </>
+            <LatestEpisodes />
+        </Stack>
     );
 }
