@@ -12,8 +12,6 @@ export const Menu = () => {
         elem.classList.add("active");
     }
 
-    // TODO: Попробовать поправить, чтобы при прокрутке до якоря Last episodes был виден заголовок якоря
-
     return (
         <nav className="Menu">
             <Box sx={{ m: -1, mb: 1 }}>
